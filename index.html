@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galton Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Galton Board</h1>
+        <div class="stats-container">
+            <div class="stat-box">Current Balls: <span id="ball-count">100</span></div>
+        </div>
+    </header>
+
+    <div class="instructions">
+        Select the amount of balls and click "Drop". 
+        The balls collide with the pegs and decide their path randomly.
+        If they land on the edges, you will recover more balls.
+        Watch out! If they land in the center, you will lose the ball.
+    </div>
+
+    <div id="game-container">
+        <canvas id="boardCanvas"></canvas>
+        
+        <!-- Control panel -->
+        <div class="controls" id="control-panel">
+            <select id="drop-count">
+                <option value="1">1 Ball</option>
+                <option value="5">5 Balls</option>
+                <option value="10">10 Balls</option>
+                <option value="50">50 Balls</option>
+                <option value="100">100 Balls</option>
+            </select>
+            <button id="btn-drop">Drop</button>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div class="message-overlay" id="game-over-screen">
+            <h2 class="game-over-text">GAME OVER</h2>
+            <p class="final-score" id="game-over-msg">You have run out of balls to play.</p>
+            <button id="btn-restart">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

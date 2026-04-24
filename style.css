@@ -1,0 +1,167 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #00ffcc; /* Neon color for balls */
+    --bucket-color: #333333;
+    --highlight-bucket: #ffcc00; /* Reward color */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #333;
+    width: 100%;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.stat-box span {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    margin-top: 30px;
+    background-color: #0a0a0a;
+    border-left: 2px solid #555;
+    border-right: 2px solid #555;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* UI Overlay */
+.controls {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.controls select {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-family: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    color: #888;
+    box-shadow: none;
+    transform: none;
+}
+
+.message-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.message-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.game-over-text {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.final-score {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+.instructions {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
